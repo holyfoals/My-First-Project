@@ -33,8 +33,6 @@ while (not done):
 Item \t \t Price """)
     for i in range(len(cart)):          # Loop to print out any items that occur in both cart and prices
         print(f"{cart[i]} \t \t £{prices[i]:.2f}")
-        if choice == "1":
-            print(f"{cart[i]} has been added to the cart!")
     
     print("-" * 30)
     print(f"Cart Total: \t £{total:.2f}")
@@ -44,13 +42,12 @@ Item \t \t Price """)
 
     if choice == "1":
         item = input("What would you like to add to your cart: ").title()
-        amount = int(input("How many: "))
         cost = float(input("How much does the item cost: £"))
         if item in stock_list:
             cart.append(item)
-            cost *= amount
             prices.append(cost)
             total += cost
+            print(f"{item} has been added to the cart!")
         else:
             print("Not available!")
         
